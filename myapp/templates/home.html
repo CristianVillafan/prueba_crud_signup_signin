@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body text-center section custom_orders">
+        <h1>Inicio</h1>
+        <p>¡Haz tus ideas realidad con nosotros!. Cotiza con nostros tus diseños</p>
+        <h1>¡Poximamente!</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'printing_course' %}">Cursos de modelado e impresion 3D</a>
+                </li>
+                <li>
+                    <a href="{% url 'maintenance_course' %}">Mantenimiento preventivo y correctivo a impresoras 3D</a>
+                </li >
+            </ul>
+        </nav>
+    </section>
+</main>
+{% endblock %}

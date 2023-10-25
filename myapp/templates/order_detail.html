@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body section">
+        <h1>Detalles del pedido</h1>
+        {{error}}
+        <h2>Nombre del pedido: {{order.name}}</h2>
+        <h2>Estilo de pintura: {{order.skinstyle}}</h2>
+        <h2>Altura: {{order.size}} cm</h2>
+        <h2>Unidades: {{order.amount}}</h2>
+        <h2>Descripción del pedido: {{order.description}}</h2>
+        <h2>Fecha de pedido: {{order.create}} </h2>
+        <div style="display: flex; justify-content: center;">
+            <a style="margin-right: 5px;" href="{% url 'order_edit' order.id %}">
+                <button class="btn btn-outline-primary button_primary">Editar</button>
+            </a>
+            <form action="{% url 'order_delete' order.id %}" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-outline-primary button_primary">Eliminar</button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}

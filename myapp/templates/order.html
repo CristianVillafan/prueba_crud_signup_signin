@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container py-5"  style="width: 480px;">
+    <section class="card card-body section">
+        <h1 class=" text-center">
+            {{order.name}}
+        </h1>
+        {{error}}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div style="display: flex; justify-content: center;"><button class="btn btn-outline-primary button_primary">Guardar</button></div>
+        </form>
+    </section>
+</main>
+{% endblock %}

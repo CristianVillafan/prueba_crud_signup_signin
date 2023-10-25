@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% block content %}  
+<main class="container py-5">
+    <section class="card card-body text-center" style="background: #404040; color: white;">
+        <h1>
+            <nav>
+                <ul style="display: flex; justify-content: center; margin: 5px;">
+                    <li style="padding: 5px; border-radius: 5px 0 0 5px; background: rgb(251, 91, 1);">
+                        <a style="color: white;" href="{% url 'signin' %}">Iniciar sesión</a>
+                    </li>        
+                    <li style="padding: 5px; border-radius: 0 5px 5px 0; background: rgb(251, 91, 1);">
+                        <a style="color: white;" href="{% url 'signup' %}">Registrarse</a>
+                    </li>
+                </ul>
+            </nav>
+        </h1>
+        <form action="/signup/" method="POST" style="display: grid; place-items: center;">
+            {% csrf_token %}
+            {{error}}
+            {{form.as_p}}
+            <button class="btn btn-outline-primary button_primary">
+                Registrarse
+            </button>
+        </form>
+    </section>
+</main>
+{% endblock %}
